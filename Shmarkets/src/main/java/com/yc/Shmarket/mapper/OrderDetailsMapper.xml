@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.Shmarket.mapper.OrderDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.yc.Shmarket.pojo.OrderDetails">
+    <id column="odid" jdbcType="INTEGER" property="odid" />
+    <result column="oid" jdbcType="INTEGER" property="oid" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="odprice" jdbcType="DECIMAL" property="odprice" />
+    <result column="odnum" jdbcType="INTEGER" property="odnum" />
+    <result column="ocharge" jdbcType="DECIMAL" property="ocharge" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    odid, oid, cid, odprice, odnum, ocharge
+  </sql>
+  <select id="selectByExample" parameterType="com.yc.Shmarket.pojo.OrderDetailsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from order_details
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order_details
+    where odid = #{odid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order_details
+    where odid = #{odid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yc.Shmarket.pojo.OrderDetailsExample">
+    delete from order_details
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yc.Shmarket.pojo.OrderDetails">
+    insert into order_details (odid, oid, cid, 
+      odprice, odnum, ocharge
+      )
+    values (#{odid,jdbcType=INTEGER}, #{oid,jdbcType=INTEGER}, #{cid,jdbcType=INTEGER}, 
+      #{odprice,jdbcType=DECIMAL}, #{odnum,jdbcType=INTEGER}, #{ocharge,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.Shmarket.pojo.OrderDetails">
+    insert into order_details
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="odid != null">
+        odid,
+      </if>
+      <if test="oid != null">
+        oid,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="odprice != null">
+        odprice,
+      </if>
+      <if test="odnum != null">
+        odnum,
+      </if>
+      <if test="ocharge != null">
+        ocharge,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="odid != null">
+        #{odid,jdbcType=INTEGER},
+      </if>
+      <if test="oid != null">
+        #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="odprice != null">
+        #{odprice,jdbcType=DECIMAL},
+      </if>
+      <if test="odnum != null">
+        #{odnum,jdbcType=INTEGER},
+      </if>
+      <if test="ocharge != null">
+        #{ocharge,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yc.Shmarket.pojo.OrderDetailsExample" resultType="java.lang.Long">
+    select count(*) from order_details
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update order_details
+    <set>
+      <if test="record.odid != null">
+        odid = #{record.odid,jdbcType=INTEGER},
+      </if>
+      <if test="record.oid != null">
+        oid = #{record.oid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cid != null">
+        cid = #{record.cid,jdbcType=INTEGER},
+      </if>
+      <if test="record.odprice != null">
+        odprice = #{record.odprice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.odnum != null">
+        odnum = #{record.odnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.ocharge != null">
+        ocharge = #{record.ocharge,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update order_details
+    set odid = #{record.odid,jdbcType=INTEGER},
+      oid = #{record.oid,jdbcType=INTEGER},
+      cid = #{record.cid,jdbcType=INTEGER},
+      odprice = #{record.odprice,jdbcType=DECIMAL},
+      odnum = #{record.odnum,jdbcType=INTEGER},
+      ocharge = #{record.ocharge,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yc.Shmarket.pojo.OrderDetails">
+    update order_details
+    <set>
+      <if test="oid != null">
+        oid = #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="odprice != null">
+        odprice = #{odprice,jdbcType=DECIMAL},
+      </if>
+      <if test="odnum != null">
+        odnum = #{odnum,jdbcType=INTEGER},
+      </if>
+      <if test="ocharge != null">
+        ocharge = #{ocharge,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where odid = #{odid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yc.Shmarket.pojo.OrderDetails">
+    update order_details
+    set oid = #{oid,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=INTEGER},
+      odprice = #{odprice,jdbcType=DECIMAL},
+      odnum = #{odnum,jdbcType=INTEGER},
+      ocharge = #{ocharge,jdbcType=DECIMAL}
+    where odid = #{odid,jdbcType=INTEGER}
+  </update>
+</mapper>
