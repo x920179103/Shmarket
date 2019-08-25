@@ -12,10 +12,14 @@ public class ShmarketApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ShmarketApplication.class, args);
 	}
+
 	@GetMapping("hello")
-  public String hello() {
-	  
-	  
-	  return "hello";
-  }
+	public String hello() {
+		return "hello";
+	}
+	
+	@GetMapping("index")
+	public String index() {
+		return "index";
+	}
 }
