@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.shmarket.mapper.AdminMapper">
+  <resultMap id="BaseResultMap" type="com.yc.shmarket.pojo.Admin">
+    <id column="aid" jdbcType="INTEGER" property="aid" />
+    <result column="ausename" jdbcType="VARCHAR" property="ausename" />
+    <result column="alogo" jdbcType="VARCHAR" property="alogo" />
+    <result column="apwd" jdbcType="VARCHAR" property="apwd" />
+    <result column="aname" jdbcType="VARCHAR" property="aname" />
+    <result column="agender" jdbcType="CHAR" property="agender" />
+    <result column="aphone" jdbcType="VARCHAR" property="aphone" />
+    <result column="aemail" jdbcType="VARCHAR" property="aemail" />
+    <result column="alevel" jdbcType="INTEGER" property="alevel" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    aid, ausename, alogo, apwd, aname, agender, aphone, aemail, alevel
+  </sql>
+  <select id="selectByExample" parameterType="com.yc.shmarket.pojo.AdminExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from admin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where aid = #{aid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from admin
+    where aid = #{aid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yc.shmarket.pojo.AdminExample">
+    delete from admin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yc.shmarket.pojo.Admin">
+    insert into admin (aid, ausename, alogo, 
+      apwd, aname, agender, 
+      aphone, aemail, alevel
+      )
+    values (#{aid,jdbcType=INTEGER}, #{ausename,jdbcType=VARCHAR}, #{alogo,jdbcType=VARCHAR}, 
+      #{apwd,jdbcType=VARCHAR}, #{aname,jdbcType=VARCHAR}, #{agender,jdbcType=CHAR}, 
+      #{aphone,jdbcType=VARCHAR}, #{aemail,jdbcType=VARCHAR}, #{alevel,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.shmarket.pojo.Admin">
+    insert into admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        aid,
+      </if>
+      <if test="ausename != null">
+        ausename,
+      </if>
+      <if test="alogo != null">
+        alogo,
+      </if>
+      <if test="apwd != null">
+        apwd,
+      </if>
+      <if test="aname != null">
+        aname,
+      </if>
+      <if test="agender != null">
+        agender,
+      </if>
+      <if test="aphone != null">
+        aphone,
+      </if>
+      <if test="aemail != null">
+        aemail,
+      </if>
+      <if test="alevel != null">
+        alevel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        #{aid,jdbcType=INTEGER},
+      </if>
+      <if test="ausename != null">
+        #{ausename,jdbcType=VARCHAR},
+      </if>
+      <if test="alogo != null">
+        #{alogo,jdbcType=VARCHAR},
+      </if>
+      <if test="apwd != null">
+        #{apwd,jdbcType=VARCHAR},
+      </if>
+      <if test="aname != null">
+        #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="agender != null">
+        #{agender,jdbcType=CHAR},
+      </if>
+      <if test="aphone != null">
+        #{aphone,jdbcType=VARCHAR},
+      </if>
+      <if test="aemail != null">
+        #{aemail,jdbcType=VARCHAR},
+      </if>
+      <if test="alevel != null">
+        #{alevel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yc.shmarket.pojo.AdminExample" resultType="java.lang.Long">
+    select count(*) from admin
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update admin
+    <set>
+      <if test="record.aid != null">
+        aid = #{record.aid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ausename != null">
+        ausename = #{record.ausename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alogo != null">
+        alogo = #{record.alogo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.apwd != null">
+        apwd = #{record.apwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aname != null">
+        aname = #{record.aname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.agender != null">
+        agender = #{record.agender,jdbcType=CHAR},
+      </if>
+      <if test="record.aphone != null">
+        aphone = #{record.aphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.aemail != null">
+        aemail = #{record.aemail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.alevel != null">
+        alevel = #{record.alevel,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update admin
+    set aid = #{record.aid,jdbcType=INTEGER},
+      ausename = #{record.ausename,jdbcType=VARCHAR},
+      alogo = #{record.alogo,jdbcType=VARCHAR},
+      apwd = #{record.apwd,jdbcType=VARCHAR},
+      aname = #{record.aname,jdbcType=VARCHAR},
+      agender = #{record.agender,jdbcType=CHAR},
+      aphone = #{record.aphone,jdbcType=VARCHAR},
+      aemail = #{record.aemail,jdbcType=VARCHAR},
+      alevel = #{record.alevel,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yc.shmarket.pojo.Admin">
+    update admin
+    <set>
+      <if test="ausename != null">
+        ausename = #{ausename,jdbcType=VARCHAR},
+      </if>
+      <if test="alogo != null">
+        alogo = #{alogo,jdbcType=VARCHAR},
+      </if>
+      <if test="apwd != null">
+        apwd = #{apwd,jdbcType=VARCHAR},
+      </if>
+      <if test="aname != null">
+        aname = #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="agender != null">
+        agender = #{agender,jdbcType=CHAR},
+      </if>
+      <if test="aphone != null">
+        aphone = #{aphone,jdbcType=VARCHAR},
+      </if>
+      <if test="aemail != null">
+        aemail = #{aemail,jdbcType=VARCHAR},
+      </if>
+      <if test="alevel != null">
+        alevel = #{alevel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yc.shmarket.pojo.Admin">
+    update admin
+    set ausename = #{ausename,jdbcType=VARCHAR},
+      alogo = #{alogo,jdbcType=VARCHAR},
+      apwd = #{apwd,jdbcType=VARCHAR},
+      aname = #{aname,jdbcType=VARCHAR},
+      agender = #{agender,jdbcType=CHAR},
+      aphone = #{aphone,jdbcType=VARCHAR},
+      aemail = #{aemail,jdbcType=VARCHAR},
+      alevel = #{alevel,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+</mapper>

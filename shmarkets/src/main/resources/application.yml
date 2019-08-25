@@ -1,0 +1,43 @@
+spring:
+   mvc:
+      view:
+         prefix: WEB-INF/jsp/
+         suffix: .jsp
+         
+   datasource:
+      url: jdbc:mysql://127.0.0.1:3306/shmarket?characterEncoding=utf-8
+      username: root
+      password: zatt
+      driver-class-name: com.mysql.jdbc.Driver
+      
+   http:
+      encoding:
+         force: true
+         charset: UTF-8
+         enabled: true
+         
+   resources:
+      staticLocations:
+         - classpath:/static/
+         - file:/d:/blog/
+      
+      
+   mail:
+      host: smtp.qq.com
+      username: 306529917@qq.com
+      password: ejchtkhuulwqcbbh
+      default-encoding: UTF-8
+      
+mail:
+   fromMail:
+      assr: 306529917@qq.com
+
+server:
+   port: 80
+   tomcat:
+      uri-encoding: UTF-8
+      
+logging:
+   level:
+      com:
+         yc: debug
