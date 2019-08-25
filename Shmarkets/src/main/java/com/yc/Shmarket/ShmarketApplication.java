@@ -1,4 +1,4 @@
-package com.yc.Shmarket;
+package com.yc.shmarket;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

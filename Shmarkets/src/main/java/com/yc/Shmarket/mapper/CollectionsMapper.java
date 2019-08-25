@@ -1,7 +1,7 @@
-package com.yc.Shmarket.mapper;
+package com.yc.shmarket.mapper;
 
-import com.yc.Shmarket.pojo.Collections;
-import com.yc.Shmarket.pojo.CollectionsExample;
+import com.yc.shmarket.pojo.Collections;
+import com.yc.shmarket.pojo.CollectionsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

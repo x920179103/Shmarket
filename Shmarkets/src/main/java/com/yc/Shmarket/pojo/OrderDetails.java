@@ -1,4 +1,4 @@
-package com.yc.Shmarket.pojo;
+package com.yc.shmarket.pojo;
 
 public class OrderDetails {
     private Integer odid;

@@ -1,4 +1,4 @@
-package com.yc.Shmarket.pojo;
+package com.yc.shmarket.pojo;
 
 import java.util.ArrayList;
 import java.util.List;
