@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.shmarket.mapper.CommoditiesMapper">
+  <resultMap id="BaseResultMap" type="com.yc.shmarket.pojo.Commodities">
+    <id column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="cname" jdbcType="VARCHAR" property="cname" />
+    <result column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="cnum" jdbcType="INTEGER" property="cnum" />
+    <result column="cdescribe" jdbcType="VARCHAR" property="cdescribe" />
+    <result column="ccolor" jdbcType="VARCHAR" property="ccolor" />
+    <result column="cmodel" jdbcType="VARCHAR" property="cmodel" />
+    <result column="cnew" jdbcType="INTEGER" property="cnew" />
+    <result column="cpic" jdbcType="VARCHAR" property="cpic" />
+    <result column="cprice" jdbcType="DECIMAL" property="cprice" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="caddress" jdbcType="VARCHAR" property="caddress" />
+    <result column="cphone" jdbcType="VARCHAR" property="cphone" />
+    <result column="cpostage" jdbcType="INTEGER" property="cpostage" />
+    <result column="cup_date" jdbcType="TIMESTAMP" property="cupDate" />
+    <result column="cdown_date" jdbcType="TIMESTAMP" property="cdownDate" />
+    <result column="cstate_com" jdbcType="INTEGER" property="cstateCom" />
+    <result column="cstate_dingdan" jdbcType="INTEGER" property="cstateDingdan" />
+    <result column="cavg_grade" jdbcType="INTEGER" property="cavgGrade" />
+    <result column="cbargain" jdbcType="CHAR" property="cbargain" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cid, cname, tid, cnum, cdescribe, ccolor, cmodel, cnew, cpic, cprice, uid, caddress, 
+    cphone, cpostage, cup_date, cdown_date, cstate_com, cstate_dingdan, cavg_grade, cbargain
+  </sql>
+  <select id="selectByExample" parameterType="com.yc.shmarket.pojo.CommoditiesExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from commodities
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from commodities
+    where cid = #{cid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from commodities
+    where cid = #{cid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.yc.shmarket.pojo.CommoditiesExample">
+    delete from commodities
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.yc.shmarket.pojo.Commodities">
+    insert into commodities (cid, cname, tid, 
+      cnum, cdescribe, ccolor, 
+      cmodel, cnew, cpic, 
+      cprice, uid, caddress, 
+      cphone, cpostage, cup_date, 
+      cdown_date, cstate_com, cstate_dingdan, 
+      cavg_grade, cbargain)
+    values (#{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, #{tid,jdbcType=INTEGER}, 
+      #{cnum,jdbcType=INTEGER}, #{cdescribe,jdbcType=VARCHAR}, #{ccolor,jdbcType=VARCHAR}, 
+      #{cmodel,jdbcType=VARCHAR}, #{cnew,jdbcType=INTEGER}, #{cpic,jdbcType=VARCHAR}, 
+      #{cprice,jdbcType=DECIMAL}, #{uid,jdbcType=INTEGER}, #{caddress,jdbcType=VARCHAR}, 
+      #{cphone,jdbcType=VARCHAR}, #{cpostage,jdbcType=INTEGER}, #{cupDate,jdbcType=TIMESTAMP}, 
+      #{cdownDate,jdbcType=TIMESTAMP}, #{cstateCom,jdbcType=INTEGER}, #{cstateDingdan,jdbcType=INTEGER}, 
+      #{cavgGrade,jdbcType=INTEGER}, #{cbargain,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yc.shmarket.pojo.Commodities">
+    insert into commodities
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="cname != null">
+        cname,
+      </if>
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="cnum != null">
+        cnum,
+      </if>
+      <if test="cdescribe != null">
+        cdescribe,
+      </if>
+      <if test="ccolor != null">
+        ccolor,
+      </if>
+      <if test="cmodel != null">
+        cmodel,
+      </if>
+      <if test="cnew != null">
+        cnew,
+      </if>
+      <if test="cpic != null">
+        cpic,
+      </if>
+      <if test="cprice != null">
+        cprice,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="caddress != null">
+        caddress,
+      </if>
+      <if test="cphone != null">
+        cphone,
+      </if>
+      <if test="cpostage != null">
+        cpostage,
+      </if>
+      <if test="cupDate != null">
+        cup_date,
+      </if>
+      <if test="cdownDate != null">
+        cdown_date,
+      </if>
+      <if test="cstateCom != null">
+        cstate_com,
+      </if>
+      <if test="cstateDingdan != null">
+        cstate_dingdan,
+      </if>
+      <if test="cavgGrade != null">
+        cavg_grade,
+      </if>
+      <if test="cbargain != null">
+        cbargain,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="cnum != null">
+        #{cnum,jdbcType=INTEGER},
+      </if>
+      <if test="cdescribe != null">
+        #{cdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="ccolor != null">
+        #{ccolor,jdbcType=VARCHAR},
+      </if>
+      <if test="cmodel != null">
+        #{cmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="cnew != null">
+        #{cnew,jdbcType=INTEGER},
+      </if>
+      <if test="cpic != null">
+        #{cpic,jdbcType=VARCHAR},
+      </if>
+      <if test="cprice != null">
+        #{cprice,jdbcType=DECIMAL},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="caddress != null">
+        #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cphone != null">
+        #{cphone,jdbcType=VARCHAR},
+      </if>
+      <if test="cpostage != null">
+        #{cpostage,jdbcType=INTEGER},
+      </if>
+      <if test="cupDate != null">
+        #{cupDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdownDate != null">
+        #{cdownDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cstateCom != null">
+        #{cstateCom,jdbcType=INTEGER},
+      </if>
+      <if test="cstateDingdan != null">
+        #{cstateDingdan,jdbcType=INTEGER},
+      </if>
+      <if test="cavgGrade != null">
+        #{cavgGrade,jdbcType=INTEGER},
+      </if>
+      <if test="cbargain != null">
+        #{cbargain,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.yc.shmarket.pojo.CommoditiesExample" resultType="java.lang.Long">
+    select count(*) from commodities
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update commodities
+    <set>
+      <if test="record.cid != null">
+        cid = #{record.cid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cname != null">
+        cname = #{record.cname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tid != null">
+        tid = #{record.tid,jdbcType=INTEGER},
+      </if>
+      <if test="record.cnum != null">
+        cnum = #{record.cnum,jdbcType=INTEGER},
+      </if>
+      <if test="record.cdescribe != null">
+        cdescribe = #{record.cdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ccolor != null">
+        ccolor = #{record.ccolor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cmodel != null">
+        cmodel = #{record.cmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cnew != null">
+        cnew = #{record.cnew,jdbcType=INTEGER},
+      </if>
+      <if test="record.cpic != null">
+        cpic = #{record.cpic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cprice != null">
+        cprice = #{record.cprice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=INTEGER},
+      </if>
+      <if test="record.caddress != null">
+        caddress = #{record.caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cphone != null">
+        cphone = #{record.cphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cpostage != null">
+        cpostage = #{record.cpostage,jdbcType=INTEGER},
+      </if>
+      <if test="record.cupDate != null">
+        cup_date = #{record.cupDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cdownDate != null">
+        cdown_date = #{record.cdownDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cstateCom != null">
+        cstate_com = #{record.cstateCom,jdbcType=INTEGER},
+      </if>
+      <if test="record.cstateDingdan != null">
+        cstate_dingdan = #{record.cstateDingdan,jdbcType=INTEGER},
+      </if>
+      <if test="record.cavgGrade != null">
+        cavg_grade = #{record.cavgGrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.cbargain != null">
+        cbargain = #{record.cbargain,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update commodities
+    set cid = #{record.cid,jdbcType=INTEGER},
+      cname = #{record.cname,jdbcType=VARCHAR},
+      tid = #{record.tid,jdbcType=INTEGER},
+      cnum = #{record.cnum,jdbcType=INTEGER},
+      cdescribe = #{record.cdescribe,jdbcType=VARCHAR},
+      ccolor = #{record.ccolor,jdbcType=VARCHAR},
+      cmodel = #{record.cmodel,jdbcType=VARCHAR},
+      cnew = #{record.cnew,jdbcType=INTEGER},
+      cpic = #{record.cpic,jdbcType=VARCHAR},
+      cprice = #{record.cprice,jdbcType=DECIMAL},
+      uid = #{record.uid,jdbcType=INTEGER},
+      caddress = #{record.caddress,jdbcType=VARCHAR},
+      cphone = #{record.cphone,jdbcType=VARCHAR},
+      cpostage = #{record.cpostage,jdbcType=INTEGER},
+      cup_date = #{record.cupDate,jdbcType=TIMESTAMP},
+      cdown_date = #{record.cdownDate,jdbcType=TIMESTAMP},
+      cstate_com = #{record.cstateCom,jdbcType=INTEGER},
+      cstate_dingdan = #{record.cstateDingdan,jdbcType=INTEGER},
+      cavg_grade = #{record.cavgGrade,jdbcType=INTEGER},
+      cbargain = #{record.cbargain,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yc.shmarket.pojo.Commodities">
+    update commodities
+    <set>
+      <if test="cname != null">
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="tid != null">
+        tid = #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="cnum != null">
+        cnum = #{cnum,jdbcType=INTEGER},
+      </if>
+      <if test="cdescribe != null">
+        cdescribe = #{cdescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="ccolor != null">
+        ccolor = #{ccolor,jdbcType=VARCHAR},
+      </if>
+      <if test="cmodel != null">
+        cmodel = #{cmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="cnew != null">
+        cnew = #{cnew,jdbcType=INTEGER},
+      </if>
+      <if test="cpic != null">
+        cpic = #{cpic,jdbcType=VARCHAR},
+      </if>
+      <if test="cprice != null">
+        cprice = #{cprice,jdbcType=DECIMAL},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="caddress != null">
+        caddress = #{caddress,jdbcType=VARCHAR},
+      </if>
+      <if test="cphone != null">
+        cphone = #{cphone,jdbcType=VARCHAR},
+      </if>
+      <if test="cpostage != null">
+        cpostage = #{cpostage,jdbcType=INTEGER},
+      </if>
+      <if test="cupDate != null">
+        cup_date = #{cupDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cdownDate != null">
+        cdown_date = #{cdownDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cstateCom != null">
+        cstate_com = #{cstateCom,jdbcType=INTEGER},
+      </if>
+      <if test="cstateDingdan != null">
+        cstate_dingdan = #{cstateDingdan,jdbcType=INTEGER},
+      </if>
+      <if test="cavgGrade != null">
+        cavg_grade = #{cavgGrade,jdbcType=INTEGER},
+      </if>
+      <if test="cbargain != null">
+        cbargain = #{cbargain,jdbcType=CHAR},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yc.shmarket.pojo.Commodities">
+    update commodities
+    set cname = #{cname,jdbcType=VARCHAR},
+      tid = #{tid,jdbcType=INTEGER},
+      cnum = #{cnum,jdbcType=INTEGER},
+      cdescribe = #{cdescribe,jdbcType=VARCHAR},
+      ccolor = #{ccolor,jdbcType=VARCHAR},
+      cmodel = #{cmodel,jdbcType=VARCHAR},
+      cnew = #{cnew,jdbcType=INTEGER},
+      cpic = #{cpic,jdbcType=VARCHAR},
+      cprice = #{cprice,jdbcType=DECIMAL},
+      uid = #{uid,jdbcType=INTEGER},
+      caddress = #{caddress,jdbcType=VARCHAR},
+      cphone = #{cphone,jdbcType=VARCHAR},
+      cpostage = #{cpostage,jdbcType=INTEGER},
+      cup_date = #{cupDate,jdbcType=TIMESTAMP},
+      cdown_date = #{cdownDate,jdbcType=TIMESTAMP},
+      cstate_com = #{cstateCom,jdbcType=INTEGER},
+      cstate_dingdan = #{cstateDingdan,jdbcType=INTEGER},
+      cavg_grade = #{cavgGrade,jdbcType=INTEGER},
+      cbargain = #{cbargain,jdbcType=CHAR}
+    where cid = #{cid,jdbcType=INTEGER}
+  </update>
+</mapper>
