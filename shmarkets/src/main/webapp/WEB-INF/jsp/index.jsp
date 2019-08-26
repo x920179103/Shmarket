@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -233,6 +234,7 @@
                         <div class="col-md-6 col-sx-12 cen-xs">
                             <form class="dropForm">
                                 <div class="input-prepend">
+                                <form:form>
                                     <div class="btn-group">
                                         <select name="orderby" class="selectpicker">
                                           <option>所有商品</option>
@@ -241,11 +243,16 @@
                                           <option>标签3</option>
                                       </select>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="选择标签再查找会更精确哦~">
+                                    <input onchange="relativeS()" type="text" class="form-control" placeholder="选择标签再查找会更精确哦~">
                                     <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
                                 </div>
-                            </form>
+                            </form:form>
                         </div>
+                        <script type="text/javascript">
+                        	function relativeS(){
+                        		console.log(1);
+                        	}
+                        </script>
                         <div class="col-md-6 text-right hidden-xs">
                             <div class="catalog-order">
                                 <select name="orderby" class="selectpicker">
