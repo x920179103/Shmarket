@@ -47,8 +47,6 @@
     <!-- START SITE -->
     <div id="wrapper">
 
-		<%@include file="common/favorites.jsp"%>
-
 		<%@include file="common/header.jsp"%>
 
         <section class="section single-wrap">
@@ -60,38 +58,12 @@
                             <div class="bread">
                                 <ol class="breadcrumb">
                                   <li><a href="index">首页</a></li>
-                                  <li class="active">注册账号</li>
+                                  <li class="active"><a href="register">注册账号</a></li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
-
-				<div class="content-top">
-					<div class="row">
-						<div class="col-sx-6 col-sm-6">
-							<div class="custommenu hidden-xs">
-								<a id="showLeft" href="#" title="" class="bt-menu-trigger"><i
-									class="fa fa-bars"></i> <img src="upload/fav.png" alt=""></a>
-							</div>
-						</div>
-
-						<div class="col-sm-6 col-xs-12 cen-xs text-right">
-							<ul class="list-inline social">
-								<li>几个链接图标，想要就自己加</li>
-								<!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li> -->
-							</ul>
-						</div>
-					</div>
-					<!-- end row -->
-				</div>
-				<!-- end content top -->
-
 
                 <div class="content boxs">
                     <div class="row">
@@ -101,22 +73,22 @@
                                     <div class="col-md-4 col-sm-6">
                                         <div class="widget">
                                             <div class="widget-title">
-                                                <h4>Login Account</h4>
+                                                <h4>登录账号</h4>
                                             </div><!-- end widget-title -->
 
                                             <div class="login-form">
                                                 <form method="post" action="" role="login">
                                                     <div class="form-group">
-                                                        <label>Username or Email</label>
+                                                        <label>用户名或邮箱</label>
                                                         <input type="email" name="email" required class="form-control" placeholder="" />
                                                         <span class="fa fa-user"></span>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Password</label>
+                                                        <label>密码</label>
                                                         <input type="password" name="password" required class="form-control" placeholder="" />
                                                         <span class="fa fa-lock"></span>
                                                     </div>
-                                                    <button type="submit" name="go" class="btn btn-primary">Login Account</button>
+                                                    <button type="submit" name="go" class="btn btn-primary">登录</button>
                                                 </form>
                                             </div><!-- end login-form -->
                                         </div><!-- end widget -->

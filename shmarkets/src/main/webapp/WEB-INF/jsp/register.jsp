@@ -47,7 +47,6 @@
     <!-- START SITE -->
     <div id="wrapper">
 
-		<%@include file="common/favorites.jsp"%>
 
 		<%@include file="common/header.jsp"%>
 
@@ -56,102 +55,87 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-sx-12 text-center">
-                            <h3>登录</h3>
+                            <h3>注册</h3>
                             <div class="bread">
                                 <ol class="breadcrumb">
                                   <li><a href="index">首页</a></li>
-                                  <li class="active">注册账号</li>
+                                  <li class="active"><a href="login">登录账号</a></li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
 
-				<div class="content-top">
-					<div class="row">
-						<div class="col-sx-6 col-sm-6">
-							<div class="custommenu hidden-xs">
-								<a id="showLeft" href="#" title="" class="bt-menu-trigger"><i
-									class="fa fa-bars"></i> <img src="upload/fav.png" alt=""></a>
-							</div>
-						</div>
-
-						<div class="col-sm-6 col-xs-12 cen-xs text-right">
-							<ul class="list-inline social">
-								<li>几个链接图标，想要就自己加</li>
-								<!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li> -->
-							</ul>
-						</div>
-					</div>
-					<!-- end row -->
-				</div>
-				<!-- end content top -->
-
-
-               
+                <div class="content boxs">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="page-content">
+                                <div class="row">
+                                    
                                     <div class="col-md-8 col-sm-6">
                                         <div class="widget">
                                             <div class="widget-title">
-                                                <h4>Don't Have an Account? Register Today!</h4>
+                                                <h4>没有帐户？立即注册！</h4>
                                             </div><!-- end widget-title -->
 
                                             <div class="login-form register-form">
                                                 <form method="post" action="" role="login" class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Username</label>
+                                                            <label>用户名</label>
                                                             <input type="text" name="text" required class="form-control" placeholder="" />
                                                             <span class="fa fa-user"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Email Address</label>
+                                                            <label>邮箱地址</label>
                                                             <input type="password" name="password" required class="form-control" placeholder="" />
                                                             <span class="fa fa-envelope"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Password</label>
+                                                            <label>密码</label>
                                                             <input type="text" name="text" required class="form-control" placeholder="" />
                                                             <span class="fa fa-lock"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Confirm Password</label>
+                                                            <label>确认密码</label>
                                                             <input type="password" name="password" required class="form-control" placeholder="" />
                                                             <span class="fa fa-lock"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Phone Number</label>
+                                                            <label>电话号码</label>
                                                             <input type="text" name="text" required class="form-control" placeholder="" />
                                                             <span class="fa fa-phone"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Location</label>
+                                                            <label>地址</label>
                                                             <input type="password" name="password" required class="form-control" placeholder="" />
                                                             <span class="fa fa-map-marker"></span>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-12">
-                                                    <button type="submit" name="go" class="btn btn-primary">Register Now</button>
+                                                    <button type="submit" name="go" class="btn btn-primary">立即注册</button>
                                                     </div>
                                                 </form>
                                             </div><!-- end login-form -->
                                         </div><!-- end widget -->
                                     </div><!-- end col -->
+
+                                </div><!-- end row -->
+                            </div>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end content -->
 
                 <br>
 
