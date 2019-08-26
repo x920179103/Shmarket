@@ -51,27 +51,12 @@
 	<!-- START SITE -->
 	<div id="wrapper">
 
-		<nav class="hidden-xs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left"
-			id="cbp-spmenu-s1">
-			<h3>
-				<i class="fa fa-star-o"></i>我的收藏
-			</h3>
-			<ul>
-				<li><img src="upload/item_01.jpg" alt=""
-					class="alignleft img-responsive">
-					<h4>
-						<a href="single-item.html">User Profile App</a>
-					</h4> <small><a href="single-item.html"><i class="fa fa-eye"></i>
-							221</a></small> <small><a href="single-item.html"><i
-							class="fa fa-comment-o"></i> 05</a></small></li>
-			</ul>
-			<a href="shop-favorites.html" class="btn btn-primary">前往收藏列表</a> <a
-				href="#" class="btn btn-primary">返回</a>
-		</nav>
-		
-<%@include file="common/header.jsp" %>
+		<%@include file="common/favorites.jsp"%>
 
-		<class="section single-wrap">
+		<%@include file="common/header.jsp"%>
+
+		<!-- 该页面的主题之类的 -->
+		<section class="section single-wrap">
 			<div class="container">
 				<div class="page-title public-profile-title">
 					<div class="row">
@@ -110,41 +95,7 @@
 				</div>
 				<!-- end content top -->
 
-				<div class="content-before">
-					<div class="row">
-						<div class="col-md-6 col-sx-12 cen-xs">
-							<form class="dropForm">
-								<div class="input-prepend">
-									<div class="btn-group">
-										<select name="orderby" class="selectpicker">
-											<option>所有商品</option>
-											<option>标签1</option>
-											<option>标签2</option>
-											<option>标签3</option>
-										</select>
-									</div>
-									<input type="text" class="form-control"
-										placeholder="选择标签再查找会更精确哦~">
-									<button class="btn btn-primary" tabindex="-1">
-										<i class="fa fa-search"></i>
-									</button>
-								</div>
-							</form>
-						</div>
-						<div class="col-md-6 text-right hidden-xs">
-							<div class="catalog-order">
-								<select name="orderby" class="selectpicker">
-									<option value="popularity">根据名字排序</option>
-									<option value="rating">根据日期排序</option>
-									<option value="date" selected='selected'>根据。。排序</option>
-									<option value="price">根据。。排序</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<!-- end row -->
-				</div>
-				<!-- end content before -->
+		<%@include file="common/searchBeforeContent.jsp"%>
 
 				<div class="content">
 					<div class="row">
@@ -285,21 +236,21 @@
 				</div>
 				<!-- end stores -->
 
-				<div class="content-message boxs">
-					<div class="row">
-						<div class="col-md-10 col-md-offset-1 text-center">
-							<h2>打广告的好地方</h2>
-							<a href="#" class="btn btn-default btn-lg">Join Today</a>
-						</div>
-					</div>
-					<!-- end row -->
-				</div>
-				<!-- end content message -->
+				
+		<%@include file="common/advertisement.jsp"%>
+
 			</div>
 			<!-- end container -->
 		</section>
-		
-<%@include file="common/footer.jsp" %>
 
+		<%@include file="common/footer.jsp"%>
+
+	</div>
+	<!-- end wrapper -->
+	<!-- END SITE -->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/custom.js"></script>
 </body>
 </html>

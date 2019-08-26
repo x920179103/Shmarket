@@ -137,9 +137,9 @@
 											class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<li class="dropdown-header">账号</li>
-											<!-- 一下两列仅存其一 -->
-											<li><a href="edit-account.html">登录 / 注册</a></li>
-											<li><a href="#">退出登录</a></li>
+											<!-- 未登录时显示 -->
+											<li><a href="login">登录</a></li>
+											<li><a href="register">注册</a></li>
 											<li><hr></li>
 											<!-- 只有登录时，才有以下列表 -->
 											<li class="dropdown-header">我的账号</li>
@@ -150,6 +150,7 @@
 											<li><a href="upload-item.html">交易记录</a></li>
 											<li><a href="messages.html">一键换肤</a></li>
 											<li><a href="downloads.html">我的其他账号</a></li>
+											<li><a href="#">退出登录</a></li>
 										</ul></li>
 								</ul>
 							</div>
