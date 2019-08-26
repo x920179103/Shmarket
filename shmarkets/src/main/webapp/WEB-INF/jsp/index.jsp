@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,7 @@
     <!-- TEMPLATE STYLES -->
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- CUSTOM STYLES -->
     <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
@@ -265,26 +266,28 @@
                             <hr>
                         </div><!-- end col -->
                     </div><!-- end row -->
+                    <!-- 商品展示 -->
                     <div class="row">
+                    <c:forEach items="${commodList }" var="cmod">
                         <div class="col-md-3 col-sm-6">
                             <div class="item-box">
                                 <div class="item-media entry">
                                     <img src="upload/item_01.jpg" alt="" class="img-responsive">
                                     <div class="magnifier">
                                         <div class="item-author">
-                                            <a href="public-profile.html"><img src="upload/member_01.jpg" class="img-circle" alt=""> Amanda</a>
+                                            <a href="public-profile.html"><img src="upload/member_01.jpg" class="img-circle" alt=""> ${cmod.user.uname }</a>
                                         </div><!-- end author -->
                                     </div>
                                     <div class="theme__button">
-                                        <p><a href="single-item.html" title="">$21</a></p>
+                                        <p><a href="single-item.html" title="">${cmod.cprice }￥</a></p>
                                     </div>
                                 </div><!-- end item-media -->
-                                <h4><a href="single-item.html">Weather Forecast</a></h4>
+                                <h4><a href="single-item.html">${cmod.cname }</a></h4>
                                 <small><a href="single-item.html"><i class="fa fa-eye"></i> 893</a></small>
                                 <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
                             </div><!-- end item-box -->
                         </div><!-- end col -->
-
+                    </c:forEach> 
                     </div><!-- end row -->
                 </div><!-- end content -->
 
@@ -293,7 +296,11 @@
                         <div class="col-md-12">
                             <nav class="pagination-wrapper">
                                 <ul class="pagination">
-                                	<li><h5>记得无限翻页哦~</h5></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
                                     <li>
                                         <a href="#" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>

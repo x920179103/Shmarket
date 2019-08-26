@@ -2,10 +2,14 @@ package com.yc.shmarket.mapper;
 
 import com.yc.shmarket.pojo.Commodities;
 import com.yc.shmarket.pojo.CommoditiesExample;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface CommoditiesMapper {
+	//商品模糊查询
+	List<Commodities> findCmodList(Commodities cmod);
+	
     long countByExample(CommoditiesExample example);
 
     int deleteByExample(CommoditiesExample example);

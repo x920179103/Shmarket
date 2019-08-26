@@ -24,6 +24,7 @@ public class Commodities {
     private Long cprice;
 
     private Integer uid;
+    private Users user;
 
     private String caddress;
 
@@ -43,7 +44,15 @@ public class Commodities {
 
     private String cbargain;
 
-    public Integer getCid() {
+    public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
+	public Integer getCid() {
         return cid;
     }
 
@@ -202,4 +211,14 @@ public class Commodities {
     public void setCbargain(String cbargain) {
         this.cbargain = cbargain == null ? null : cbargain.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Commodities [cid=" + cid + ", cname=" + cname + ", tid=" + tid + ", cnum=" + cnum + ", cdescribe="
+				+ cdescribe + ", ccolor=" + ccolor + ", cmodel=" + cmodel + ", cnew=" + cnew + ", cpic=" + cpic
+				+ ", cprice=" + cprice + ", uid=" + uid + ", user=" + user + ", caddress=" + caddress + ", cphone="
+				+ cphone + ", cpostage=" + cpostage + ", cupDate=" + cupDate + ", cdownDate=" + cdownDate
+				+ ", cstateCom=" + cstateCom + ", cstateDingdan=" + cstateDingdan + ", cavgGrade=" + cavgGrade
+				+ ", cbargain=" + cbargain + "]";
+	}
 }

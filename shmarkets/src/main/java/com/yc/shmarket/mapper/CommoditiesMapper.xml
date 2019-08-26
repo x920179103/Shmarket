@@ -22,7 +22,27 @@
     <result column="cstate_dingdan" jdbcType="INTEGER" property="cstateDingdan" />
     <result column="cavg_grade" jdbcType="INTEGER" property="cavgGrade" />
     <result column="cbargain" jdbcType="CHAR" property="cbargain" />
+    
+    <association property="user" column="uid" fetchType="lazy"
+    select="com.yc.shmarket.mapper.UsersMapper.selectByPrimaryKey"></association>
   </resultMap>
+  <!-- 商品模糊查询 -->
+<sql id="query_items_where">
+		cstate_com=1
+		<if test="tid!=null">
+			and tid = #{tid}
+		</if>
+		<if test="cname!=null and cname!='' ">
+			and cname LIKE '%${cname}%'
+		</if>
+</sql>
+  <select id="findCmodList" parameterType="com.yc.shmarket.pojo.Commodities" resultMap="BaseResultMap">
+	SELECT distinct * FROM commodities 
+	<where>
+		<include refid="query_items_where"></include>
+	</where>
+</select>
+  
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
