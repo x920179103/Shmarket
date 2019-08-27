@@ -70,7 +70,6 @@
 
 		<%@include file="common/favorites.jsp"%>
 
-
 		<%@include file="common/searchBeforeContent.jsp"%>
 
 				<div class="content">
