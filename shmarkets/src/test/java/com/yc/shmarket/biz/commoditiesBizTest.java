@@ -14,7 +14,7 @@ import com.yc.shmarket.pojo.Commodities;
 public class commoditiesBizTest {
 	@Autowired
 	private CommoditiesBiz cBiz;
-	@Test
+	/*@Test
 	public void testQueryAll() {
 		List<Commodities> list=cBiz.queryAll();
 		System.out.println(list);
@@ -24,7 +24,7 @@ public class commoditiesBizTest {
 		Commodities cmod=new Commodities();
 		cmod.setCname("地图");
 		//cmod.setTid(3);
-		List<Commodities> list=cBiz.search(cmod);
+		List<Commodities> list=cBiz.hotWords(cmod);
 		System.out.println(list);
-	}
+	}*/
 }

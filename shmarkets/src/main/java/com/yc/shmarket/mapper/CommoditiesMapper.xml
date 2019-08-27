@@ -25,6 +25,8 @@
     
     <association property="user" column="uid" fetchType="lazy"
     select="com.yc.shmarket.mapper.UsersMapper.selectByPrimaryKey"></association>
+    <association property="type" column="tid" fetchType="lazy"
+    select="com.yc.shmarket.mapper.TypeMapper.selectByPrimaryKey"></association>
   </resultMap>
   <!-- 商品模糊查询 -->
 <sql id="query_items_where">
@@ -37,7 +39,7 @@
 		</if>
 </sql>
   <select id="findCmodList" parameterType="com.yc.shmarket.pojo.Commodities" resultMap="BaseResultMap">
-	SELECT distinct * FROM commodities 
+	SELECT distinct cname FROM commodities 
 	<where>
 		<include refid="query_items_where"></include>
 	</where>
