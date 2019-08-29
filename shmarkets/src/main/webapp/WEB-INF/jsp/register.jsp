@@ -46,29 +46,6 @@
 <link rel="stylesheet" type="text/css" href="css/custom.css">
 
 </head>
-<style type="text/css">
-#strength_length {
-	height: 6px;
-	width: 100px;
-	padding: 2px;
-	border: 1px solid #ccc;
-}
-
-.lv1 {
-	background: red;
-}
-
-.lv2 {
-	background: yellow;
-	width: 200px;
-}
-
-.lv3 {
-	background: green;
-	width: 300px;
-}
-</style>
-</head>
 <body>
 
 	<!-- START SITE -->
@@ -198,8 +175,7 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/custom.js"></script>
 
-
-	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript">
 
 		function checkPwd() {
@@ -275,7 +251,7 @@
 			}
 		}
 		
-		var checkName1 = false;
+		var checkNameBoo = false;
 		function checkName(){
 			var uname = $("#uname").val();
 			$.ajax({ 
@@ -283,7 +259,7 @@
 				url : "uname",
 				data :{'uname':uname},
 				success : function(data) { 
-					checkName1 = data;
+					checkNameBoo = data;
 					nameError(data);
 				},
 			});
@@ -299,11 +275,11 @@
 		}
 		
 		function check() {
-			
-			if(checkPhone() && checkEmail() && checkPassword() && checkPwd() && checkName1) {
+			if(checkPhone() && checkEmail() && checkPassword() && checkPwd() && checkNameBoo) {
 				alert("注册成功！请记住您的账号和密码");
 				return true;
 			}else{
+				alert("注册失败！请仔细填写您的信息");
 				return false;
 			}
 		}
