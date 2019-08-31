@@ -9,7 +9,7 @@
     <result column="cdescribe" jdbcType="VARCHAR" property="cdescribe" />
     <result column="ccolor" jdbcType="VARCHAR" property="ccolor" />
     <result column="cmodel" jdbcType="VARCHAR" property="cmodel" />
-    <result column="cnew" jdbcType="INTEGER" property="cnew" />
+    <result column="cnew" jdbcType="VARCHAR" property="cnew" />
     <result column="cpic" jdbcType="VARCHAR" property="cpic" />
     <result column="cprice" jdbcType="DECIMAL" property="cprice" />
     <result column="uid" jdbcType="INTEGER" property="uid" />
@@ -25,8 +25,6 @@
     
     <association property="user" column="uid" fetchType="lazy"
     select="com.yc.shmarket.mapper.UsersMapper.selectByPrimaryKey"></association>
-    <association property="type" column="tid" fetchType="lazy"
-    select="com.yc.shmarket.mapper.TypeMapper.selectByPrimaryKey"></association>
   </resultMap>
   <!-- 商品模糊查询 -->
 <sql id="query_items_where">
@@ -44,7 +42,7 @@
 		<include refid="query_items_where"></include>
 	</where>
 </select>
-  
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -147,7 +145,7 @@
       cavg_grade, cbargain)
     values (#{cid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, #{tid,jdbcType=INTEGER}, 
       #{cnum,jdbcType=INTEGER}, #{cdescribe,jdbcType=VARCHAR}, #{ccolor,jdbcType=VARCHAR}, 
-      #{cmodel,jdbcType=VARCHAR}, #{cnew,jdbcType=INTEGER}, #{cpic,jdbcType=VARCHAR}, 
+      #{cmodel,jdbcType=VARCHAR}, #{cnew,jdbcType=VARCHAR}, #{cpic,jdbcType=VARCHAR}, 
       #{cprice,jdbcType=DECIMAL}, #{uid,jdbcType=INTEGER}, #{caddress,jdbcType=VARCHAR}, 
       #{cphone,jdbcType=VARCHAR}, #{cpostage,jdbcType=INTEGER}, #{cupDate,jdbcType=TIMESTAMP}, 
       #{cdownDate,jdbcType=TIMESTAMP}, #{cstateCom,jdbcType=INTEGER}, #{cstateDingdan,jdbcType=INTEGER}, 
@@ -240,7 +238,7 @@
         #{cmodel,jdbcType=VARCHAR},
       </if>
       <if test="cnew != null">
-        #{cnew,jdbcType=INTEGER},
+        #{cnew,jdbcType=VARCHAR},
       </if>
       <if test="cpic != null">
         #{cpic,jdbcType=VARCHAR},
@@ -311,7 +309,7 @@
         cmodel = #{record.cmodel,jdbcType=VARCHAR},
       </if>
       <if test="record.cnew != null">
-        cnew = #{record.cnew,jdbcType=INTEGER},
+        cnew = #{record.cnew,jdbcType=VARCHAR},
       </if>
       <if test="record.cpic != null">
         cpic = #{record.cpic,jdbcType=VARCHAR},
@@ -363,7 +361,7 @@
       cdescribe = #{record.cdescribe,jdbcType=VARCHAR},
       ccolor = #{record.ccolor,jdbcType=VARCHAR},
       cmodel = #{record.cmodel,jdbcType=VARCHAR},
-      cnew = #{record.cnew,jdbcType=INTEGER},
+      cnew = #{record.cnew,jdbcType=VARCHAR},
       cpic = #{record.cpic,jdbcType=VARCHAR},
       cprice = #{record.cprice,jdbcType=DECIMAL},
       uid = #{record.uid,jdbcType=INTEGER},
@@ -402,7 +400,7 @@
         cmodel = #{cmodel,jdbcType=VARCHAR},
       </if>
       <if test="cnew != null">
-        cnew = #{cnew,jdbcType=INTEGER},
+        cnew = #{cnew,jdbcType=VARCHAR},
       </if>
       <if test="cpic != null">
         cpic = #{cpic,jdbcType=VARCHAR},
@@ -451,7 +449,7 @@
       cdescribe = #{cdescribe,jdbcType=VARCHAR},
       ccolor = #{ccolor,jdbcType=VARCHAR},
       cmodel = #{cmodel,jdbcType=VARCHAR},
-      cnew = #{cnew,jdbcType=INTEGER},
+      cnew = #{cnew,jdbcType=VARCHAR},
       cpic = #{cpic,jdbcType=VARCHAR},
       cprice = #{cprice,jdbcType=DECIMAL},
       uid = #{uid,jdbcType=INTEGER},

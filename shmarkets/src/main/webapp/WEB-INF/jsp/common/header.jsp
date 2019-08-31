@@ -146,8 +146,8 @@
 											<li><a href="public-profile.html">收货地址</a></li>
 											<li><a href="sales.html">修改密码</a></li>
 											<li><a href="upload-item.html">购物车</a></li>
-											<li><a href="sales.html">上架商品</a></li>
-											<li><a href="upload-item.html">交易记录</a></li>
+											<li><a href="sales.html">我的商品</a></li>
+											<li><a href="toUploadItem">上架商品</a></li>
 											<li><a href="messages.html">一键换肤</a></li>
 											<li><a href="downloads.html">我的其他账号</a></li>
 											<li><a href="#">退出登录</a></li>

@@ -10,7 +10,6 @@ public class Commodities {
     private String cname;
 
     private Integer tid;
-    private Type type;
 
     private Integer cnum;
 
@@ -20,7 +19,7 @@ public class Commodities {
 
     private String cmodel;
 
-    private Integer cnew;
+    private String cnew;
 
     private String cpic;
 
@@ -47,15 +46,7 @@ public class Commodities {
 
     private String cbargain;
 
-    public Type getType() {
-		return type;
-	}
-
-	public void setType(Type type) {
-		this.type = type;
-	}
-
-	public Users getUser() {
+    public Users getUser() {
 		return user;
 	}
 
@@ -119,12 +110,12 @@ public class Commodities {
         this.cmodel = cmodel == null ? null : cmodel.trim();
     }
 
-    public Integer getCnew() {
+    public String getCnew() {
         return cnew;
     }
 
-    public void setCnew(Integer cnew) {
-        this.cnew = cnew;
+    public void setCnew(String cnew) {
+        this.cnew = cnew == null ? null : cnew.trim();
     }
 
     public String getCpic() {
@@ -225,12 +216,12 @@ public class Commodities {
 
 	@Override
 	public String toString() {
-		return "Commodities [cid=" + cid + ", cname=" + cname + ", tid=" + tid + ", type=" + type + ", cnum=" + cnum
-				+ ", cdescribe=" + cdescribe + ", ccolor=" + ccolor + ", cmodel=" + cmodel + ", cnew=" + cnew
-				+ ", cpic=" + cpic + ", cprice=" + cprice + ", uid=" + uid + ", user=" + user + ", caddress=" + caddress
-				+ ", cphone=" + cphone + ", cpostage=" + cpostage + ", cupDate=" + cupDate + ", cdownDate=" + cdownDate
+		return "Commodities [cid=" + cid + ", cname=" + cname + ", tid=" + tid + ", cnum=" + cnum + ", cdescribe="
+				+ cdescribe + ", ccolor=" + ccolor + ", cmodel=" + cmodel + ", cnew=" + cnew + ", cpic=" + cpic
+				+ ", cprice=" + cprice + ", uid=" + uid + ", user=" + user + ", caddress=" + caddress + ", cphone="
+				+ cphone + ", cpostage=" + cpostage + ", cupDate=" + cupDate + ", cdownDate=" + cdownDate
 				+ ", cstateCom=" + cstateCom + ", cstateDingdan=" + cstateDingdan + ", cavgGrade=" + cavgGrade
 				+ ", cbargain=" + cbargain + "]";
 	}
-
+    
 }

@@ -575,52 +575,62 @@ public class CommoditiesExample {
             return (Criteria) this;
         }
 
-        public Criteria andCnewEqualTo(Integer value) {
+        public Criteria andCnewEqualTo(String value) {
             addCriterion("cnew =", value, "cnew");
             return (Criteria) this;
         }
 
-        public Criteria andCnewNotEqualTo(Integer value) {
+        public Criteria andCnewNotEqualTo(String value) {
             addCriterion("cnew <>", value, "cnew");
             return (Criteria) this;
         }
 
-        public Criteria andCnewGreaterThan(Integer value) {
+        public Criteria andCnewGreaterThan(String value) {
             addCriterion("cnew >", value, "cnew");
             return (Criteria) this;
         }
 
-        public Criteria andCnewGreaterThanOrEqualTo(Integer value) {
+        public Criteria andCnewGreaterThanOrEqualTo(String value) {
             addCriterion("cnew >=", value, "cnew");
             return (Criteria) this;
         }
 
-        public Criteria andCnewLessThan(Integer value) {
+        public Criteria andCnewLessThan(String value) {
             addCriterion("cnew <", value, "cnew");
             return (Criteria) this;
         }
 
-        public Criteria andCnewLessThanOrEqualTo(Integer value) {
+        public Criteria andCnewLessThanOrEqualTo(String value) {
             addCriterion("cnew <=", value, "cnew");
             return (Criteria) this;
         }
 
-        public Criteria andCnewIn(List<Integer> values) {
+        public Criteria andCnewLike(String value) {
+            addCriterion("cnew like", value, "cnew");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnewNotLike(String value) {
+            addCriterion("cnew not like", value, "cnew");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnewIn(List<String> values) {
             addCriterion("cnew in", values, "cnew");
             return (Criteria) this;
         }
 
-        public Criteria andCnewNotIn(List<Integer> values) {
+        public Criteria andCnewNotIn(List<String> values) {
             addCriterion("cnew not in", values, "cnew");
             return (Criteria) this;
         }
 
-        public Criteria andCnewBetween(Integer value1, Integer value2) {
+        public Criteria andCnewBetween(String value1, String value2) {
             addCriterion("cnew between", value1, value2, "cnew");
             return (Criteria) this;
         }
 
-        public Criteria andCnewNotBetween(Integer value1, Integer value2) {
+        public Criteria andCnewNotBetween(String value1, String value2) {
             addCriterion("cnew not between", value1, value2, "cnew");
             return (Criteria) this;
         }

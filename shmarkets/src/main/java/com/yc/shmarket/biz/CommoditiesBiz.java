@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.PageHelper;
 import com.yc.shmarket.mapper.CommoditiesMapper;
@@ -57,5 +58,18 @@ public class CommoditiesBiz {
 		int count=(int) cm.countByExample(ce);
 		int pagecount= count/pagesize==0? count/pagesize:(count/pagesize)+1;
 		return new Result(1,pagecount+"",list);
+	}
+	/*
+	 * 商品上架
+	 */
+	public Result uploadCmod(Commodities cmod) {
+		try {
+			cm.insert(cmod);
+			return new Result(1,"商品上架成功！");
+		} catch (Exception e) {
+			e.printStackTrace();
+			/*return new Result(0,"商品上架失败！");*/
+		}
+		return new Result(0,"商品上架失败！");
 	}
 }
