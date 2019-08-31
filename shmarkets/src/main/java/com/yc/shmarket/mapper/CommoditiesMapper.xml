@@ -35,6 +35,7 @@
 		<if test="cname!=null and cname!='' ">
 			and cname LIKE '%${cname}%'
 		</if>
+		order by cup_date desc
 </sql>
   <select id="findCmodList" parameterType="com.yc.shmarket.pojo.Commodities" resultMap="BaseResultMap">
 	SELECT distinct cname FROM commodities 

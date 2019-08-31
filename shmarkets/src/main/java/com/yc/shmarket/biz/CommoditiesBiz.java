@@ -18,7 +18,7 @@ import com.yc.shmarket.util.Result;
 public class CommoditiesBiz {
 	@Resource
 	private CommoditiesMapper cm;
-	private int pagesize=8;
+	private final int pagesize=20;
 	
 	/*
 	 * 根据上架时间先后展示上架的商品
@@ -46,12 +46,28 @@ public class CommoditiesBiz {
 	 * 搜索
 	 */
 	@Transactional(readOnly=true)
-	public Result search(int page,Commodities cmod) {
+	public Result search(int page,Commodities cmod,String orderby) {
 		CommoditiesExample ce=new CommoditiesExample();
-		ce.setOrderByClause("cup_date desc");
-		Criteria c=ce.createCriteria().andCstateComEqualTo(1).andCnameLike("%"+cmod.getCname()+"%");
+		switch (orderby) {
+		case "date":
+			ce.setOrderByClause("cup_date desc");
+			break;
+		case "priceASC":
+			ce.setOrderByClause("cprice ASC");
+			break;
+		case "dateDESC":
+			ce.setOrderByClause("cprice DESC");
+			break;
+		default:
+			ce.setOrderByClause("cup_date desc");
+			break;
+		}
+		Criteria c=ce.createCriteria().andCstateComEqualTo(1);
 		if(null!=cmod.getTid()){
 			c.andTidEqualTo(cmod.getTid());
+		}
+		if (cmod.getCname() != null && cmod.getCname() != ""){
+			c.andCnameLike("%"+cmod.getCname()+"%");
 		}
 		PageHelper.startPage(page, pagesize);
 		List<Commodities> list= cm.selectByExample(ce);

@@ -25,11 +25,10 @@
 						</div>
 						<div class="col-md-6 text-right hidden-xs">
 							<div class="catalog-order">
-								<select name="orderby" class="selectpicker">
-									<option value="popularity">根据名字排序</option>
-									<option value="rating">根据日期排序</option>
-									<option value="date" selected='selected'>根据。。排序</option>
-									<option value="price">根据。。排序</option>
+								<select name="orderby" class="selectpicker" id="orderby" onchange="orderby()">
+									<option value="date" selected='selected'>按日期排序</option>
+									<option value="priceASC">按价格升序</option>
+									<option value="dateDESC">按价格降序</option>
 								</select>
 							</div>
 						</div>
@@ -51,9 +50,7 @@ function relativeS(){
 		}else{
 			params={cname:content,tid:tid};
 		}
-		console.log(params);
 		$.get("hotWords",params,function(data){
-			console.log(data);
 			 if(data!=null && data.length>0){
 				 $("#hotwords").css('display','block');
 				 $("#hotwords li").remove();//移除之前生成的li相关搜索
@@ -81,5 +78,10 @@ function choosecontent(e){
 //搜索框丢失焦点，下拉框也会消失
 function hiddenhot(){
 	$("#hotwords").css('display','none');
+}
+
+function orderby(){
+	var orderby=$("#orderby").val();
+	search(1);
 }
 </script>

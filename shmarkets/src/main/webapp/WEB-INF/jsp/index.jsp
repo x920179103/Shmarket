@@ -98,7 +98,7 @@
                         <div class="col-md-3 col-sm-6" id="cmodlist">
                             <div class="item-box">
                                 <div class="item-media entry">
-                                    <img src="upload/item_01.jpg" alt="" class="img-responsive">
+                                    <img src="img/${cmod.cpic.split(';')[1] }" alt="" class="img-responsive">
                                     <div class="magnifier">
                                         <div class="item-author">
                                             <a href="public-profile.html"><img src="upload/member_01.jpg" class="img-circle" alt=""> ${cmod.user.uname }</a>
@@ -244,15 +244,15 @@ function fenye(obj){
 function search(page){
 	var cname=$("#search-keyword").val();
 	var tid=$("#type").val();
-	$.get("search",{page:page,cname:cname,tid:tid},function(result){
-		console.log(result);
+	var orderby=$("#orderby").val();
+	$.get("search",{page:page,cname:cname,tid:tid,orderby:orderby},function(result){
 		var str="";
 		var res=result.data;
 		for(var i=0;i<res.length;i++){
 			str+="<div class='col-md-3 col-sm-6'>\n" +
 					"                            <div class='item-box'>\n" + 
 					"                                <div class='item-media entry'>\n" + 
-					"                                    <img src='upload/item_01.jpg' alt='' class='img-responsive'>\n" + 
+					"                                    <img src='img/"+res[i].cpic.split(";")[1]+"' alt='' class='img-responsive'>\n" + 
 					"                                    <div class='magnifier'>\n" + 
 					"                                        <div class='item-author'>\n" + 
 					"                                            <a href='public-profile.html'><img src='upload/member_01.jpg' class='img-circle' alt=''> "+res[i].user.uname+"</a>\n" + 

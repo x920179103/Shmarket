@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.google.gson.Gson;
 import com.yc.shmarket.biz.CommoditiesBiz;
 import com.yc.shmarket.biz.TypeBiz;
+import com.yc.shmarket.biz.UsersBiz;
 import com.yc.shmarket.pojo.Commodities;
 import com.yc.shmarket.pojo.Type;
 import com.yc.shmarket.util.FileUtils;
@@ -36,6 +37,8 @@ public class CommoditiesController {
 	private CommoditiesBiz cBiz;
 	@Resource
 	private TypeBiz tBiz;
+	@Resource
+	private UsersBiz uBiz;
 
 	// 分类。执行所有代码前执行，并且将返回值放入Model
 	@ModelAttribute("typeList")
@@ -58,13 +61,9 @@ public class CommoditiesController {
 
 	@RequestMapping("/search")
 	@ResponseBody
-	public Result search(@RequestParam(defaultValue = "1") int page, Model model, Commodities cmod) {
+	public Result search(@RequestParam(defaultValue = "1") int page, Model model, Commodities cmod,String orderby) {
 		System.out.println("====名称：" + cmod.getCname() + "=====id：" + cmod.getTid());
-		if (cmod.getCname() != null && cmod.getCname() != "") {
-			return cBiz.search(page, cmod);// 商品列表
-		} else {
-			return cBiz.queryAll(page);
-		}
+		return cBiz.search(page, cmod,orderby);
 	}
 
 	@RequestMapping("/toUploadItem")
@@ -113,10 +112,12 @@ public class CommoditiesController {
 				}
 			}
 		}
-		//String userName=(String) request.getSession().getAttribute("userName");需要知道是谁上传的uid
+		//String userName=(String) request.getSession().getAttribute("userName");//需要知道是谁上传的uid
+		cmod.setUid(/*uBiz.queryUid(userName)*/1);//这里等整合的时候要改
 		cmod.setCpic(cpic.toString());
 		cmod.setUid(1);
-		cmod.setCupDate(new Date());
+		cmod.setCupDate(new Date());//上架日期
+		cmod.setCstateCom(1);
 		result=cBiz.uploadCmod( cmod);
 		/*model.addAttribute("result", result);*/
 		System.out.println("=商品上架============"+result.getMsg());

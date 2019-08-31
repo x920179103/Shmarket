@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="space">
                                     <label>是否包邮 : </label>
-                                    <font><input type="radio"  name="cpostag" value="0"/>是</font>
+                                    <font onclick="cpostagYes()"><input type="radio"  name="cpostag" value="0"/>是</font>
                                     <font><input type="radio"  name="cpostag" value="否" checked="checked"/>否</font>    
                                 </div>
                                 <div class="space">
@@ -194,6 +194,10 @@
     <script src="js/bootstrap.js"></script>
     <script src="js/custom.js"></script>
 <script type="text/javascript">
+function cpostagYes(){
+	$("input[name='cpostage']").val(0);
+}
+
 var curFiles = [];//文件数组，用来保存上传的文件信息
 //检查上传的图片
 function checkImage(obj) {
