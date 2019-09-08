@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.yc.shmarket.adminservice.AdminService;
+import com.yc.shmarket.admin.service.AdminService;
 @SpringBootApplication
 @Controller
 @MapperScan("com.yc.shmarket.mapper")//Mybatis的DAO所在包

@@ -94,6 +94,12 @@
     from users
     where uid = #{uid,jdbcType=INTEGER}
   </select>
+  <select id="selectUsersTitleList" parameterType="com.yc.shmarket.pojo.Users" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where ustate = #{ustate,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from users
     where uid = #{uid,jdbcType=INTEGER}

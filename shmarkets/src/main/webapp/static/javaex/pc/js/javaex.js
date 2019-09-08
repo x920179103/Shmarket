@@ -46,7 +46,6 @@
 				maxHeight : "",			// 弹出层最大高度
 				height : "",			// 弹出层高度
 				top : "30%",			// 距离顶部距离，支持 200px 这种写法
-				title : "温馨提示",		// 弹出层标题
 				closeIcon : true,		// 是否显示右上角关闭 X
 				content : "",			// 弹出层内容
 				textAlign : "left",		// 内容位置：left；center；right

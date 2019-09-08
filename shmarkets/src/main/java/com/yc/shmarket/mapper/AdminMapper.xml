@@ -79,7 +79,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from admin
+    from admin 
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -97,6 +97,12 @@
   <select id="findByAdminName" parameterType="String" resultType="com.yc.shmarket.pojo.Admin" >
   		select * from admin where ausename = #{ausename}
   	</select>
+  		<select id="findList" parameterType="Map" resultType="com.yc.shmarket.pojo.Admin">
+  		select * from admin where ausename like #{ausename} limit 
+  	</select>
+  	<select id="getTotal" parameterType="Map" resultType="Integer">
+  		select count(id) from admin where ausename like #{ausename}
+  	</select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from admin
     where aid = #{aid,jdbcType=INTEGER}
@@ -107,6 +113,9 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+  	<update id="delete" parameterType="String">
+  		delete from admin where aid in (${value})
+  	</update>
   <insert id="insert" parameterType="com.yc.shmarket.pojo.Admin">
     insert into admin (aid, ausename, alogo, 
       apwd, aname, agender, 

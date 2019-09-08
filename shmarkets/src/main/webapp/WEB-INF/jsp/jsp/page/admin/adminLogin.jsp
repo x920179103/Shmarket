@@ -4,7 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <!--字体图标-->
+<link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../easyui/css/demo.css">
+	<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../easyui/js/validateExtends.js"></script>
+	<script type="text/javascript"></script>
 <link
 	href="${pageContext.request.contextPath}/static/javaex/pc/css/icomoon.css"
 	rel="stylesheet" />
@@ -32,7 +40,7 @@
 <!--表单验证-->
 <script
 	src="${pageContext.request.contextPath}/static/javaex/pc/js/javaex-formVerify.js"></script>
-	
+<script type="text/javascript" src="${pageContext.request.contextPath}/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		
@@ -50,7 +58,11 @@
 						window.parent.location.href = "adminIndex";
 					} else{
 						
-						alert(data.msg);
+						javaex.message({
+							content : data.msg,
+							type : "error"
+						});
+						
 						
 					} 
 				}
@@ -58,10 +70,9 @@
 			});
 		});
 		
-		//设置复选框
 	
 	})
-</script> 
+</script>
 
 <title>Insert title here</title>
 </head>
