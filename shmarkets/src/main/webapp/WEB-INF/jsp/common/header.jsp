@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+
 <header class="header">
 	<div class="container-menu">
 		<nav class="navbar navbar-default yamm">
@@ -72,8 +75,7 @@
 														</div>
 														<!-- end col -->
 													</div>
-												</div>
-												<!-- end ttmenu-content -->
+												</div> <!-- end ttmenu-content -->
 											</li>
 										</ul></li>
 									<!-- end mega menu -->
@@ -121,8 +123,7 @@
 														</div>
 														<!-- end col -->
 													</div>
-												</div>
-												<!-- end ttmenu-content -->
+												</div> <!-- end ttmenu-content -->
 											</li>
 										</ul></li>
 									<!-- end mega menu -->
@@ -135,14 +136,12 @@
 										aria-haspopup="true" aria-expanded="false"><img
 											src="upload/member.png" alt="" class="img-circle"> <span
 											class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li class="dropdown-header">账号</li>
-											<!-- 未登录时显示 -->
+										<ul class="dropdown-menu" id="zhanghao">
+											<li class="dropdown-header">未登录</li>
 											<li><a href="tologin">登录</a></li>
 											<li><a href="toregister">注册</a></li>
 											<li><hr></li>
-											<!-- 只有登录时，才有以下列表 -->
-											<li class="dropdown-header">我的账号</li>
+											<li class="dropdown-header" id="zhanghaoName">我的账号</li>
 											<li><a href="#">收货地址</a></li>
 											<li><a href="#">修改密码</a></li>
 											<li><a href="#">购物车</a></li>
@@ -150,7 +149,7 @@
 											<li><a href="#">交易记录</a></li>
 											<li><a href="#">一键换肤</a></li>
 											<li><a href="#">我的其他账号</a></li>
-											<li><a href="#">退出登录</a></li>
+											<li><a href="login" onclick="exit()">退出登录</a></li>
 										</ul></li>
 								</ul>
 							</div>
@@ -168,3 +167,39 @@
 	</div>
 	<!-- end container -->
 </header>
+<script type="text/javascript">
+var userName = "${sessionScope.userName}";
+var loginAndRegister = "";
+console.log(userName);
+if(userName == null || userName == ""){
+	loginAndRegister = 
+		"<li class='dropdown-header'>未登录</li>" +
+		"<li><a href='tologin'>登录</a></li>" + 
+		"<li><a href='toregister'>注册</a></li>";
+}else{
+	loginAndRegister = 
+		"<li class='dropdown-header' id='zhanghaoName'>欢迎，" + 
+		userName + 
+		"</li>" +
+		"<li><a href='#'>收货地址</a></li>" + 
+		"<li><a href='toedit'>修改个人信息</a></li>" + 
+		"<li><a href='toforget2'>修改密码</a></li>" + 
+		"<li><a href='#'>购物车</a></li>" + 
+		"<li><a href='#'>上架商品</a></li>" + 
+		"<li><a href='#'>交易记录</a></li>" + 
+		"<li><a href='tologin' id='userLoginOut'>退出登录</a></li>";
+}
+$("#zhanghao").html(loginAndRegister);
+
+//注销事件
+$("#userLoginOut").click(function() {
+    var url = "userLoginOut";
+    var param = {"name":userName};
+    var callback = function(result){
+    	alert(userName + "已下线");
+    	window.location.reload();
+    };
+	$.post(url,param,callback);
+})
+
+</script>

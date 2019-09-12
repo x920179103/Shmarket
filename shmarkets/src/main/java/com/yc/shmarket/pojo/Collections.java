@@ -3,43 +3,43 @@ package com.yc.shmarket.pojo;
 import java.util.Date;
 
 public class Collections {
-    private Integer colid;
+	private Integer colid;
 
-    private Integer uid;
+	private Integer uid;
 
-    private Integer cid;
+	private Integer cid;
 
-    private Date coltime;
+	private Date coltime;
 
-    public Integer getColid() {
-        return colid;
-    }
+	public Integer getColid() {
+		return colid;
+	}
 
-    public void setColid(Integer colid) {
-        this.colid = colid;
-    }
+	public void setColid(Integer colid) {
+		this.colid = colid;
+	}
 
-    public Integer getUid() {
-        return uid;
-    }
+	public Integer getUid() {
+		return uid;
+	}
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 
-    public Integer getCid() {
-        return cid;
-    }
+	public Integer getCid() {
+		return cid;
+	}
 
-    public void setCid(Integer cid) {
-        this.cid = cid;
-    }
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
 
-    public Date getColtime() {
-        return coltime;
-    }
+	public Date getColtime() {
+		return coltime;
+	}
 
-    public void setColtime(Date coltime) {
-        this.coltime = coltime;
-    }
+	public void setColtime(Date coltime) {
+		this.coltime = coltime;
+	}
 }

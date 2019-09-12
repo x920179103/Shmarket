@@ -1,8 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="en">
+<!-- TEMPLATE STYLES -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
+<!-- CUSTOM STYLES -->
+<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<link rel="stylesheet" type="text/css" href="css/responsive.css">
+<link rel="stylesheet" type="text/css" href="css/custom.css">
 <head>
 
 <meta charset="utf-8">
@@ -45,9 +56,9 @@
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
 <link rel="stylesheet" type="text/css" href="css/custom.css">
 
+<link rel="stylesheet" type="text/css" href="fenye/lanrenzhijia.css" media="screen" />
 </head>
 <body>
-
 	<!-- START SITE -->
 	<div id="wrapper">
 
@@ -68,9 +79,9 @@
 					</div>
 				</div>
 
-		<%@include file="common/favorites.jsp"%>
+				<%@include file="common/favorites.jsp"%>
 
-		<%@include file="common/searchBeforeContent.jsp"%>
+				<%@include file="common/searchBeforeContent.jsp"%>
 
 				<div class="content">
 					<div class="row">
@@ -83,37 +94,38 @@
 						<!-- end col -->
 					</div>
 					<!-- end row -->
-					<div class="row">
-						<div class="col-md-3 col-sm-6">
-							<div class="item-box">
-								<div class="item-media entry">
-									<img src="upload/item_01.jpg" alt="" class="img-responsive">
-									<div class="magnifier">
-										<div class="item-author">
-											<a href="public-profile.html"><img
-												src="upload/member_01.jpg" class="img-circle" alt="">
-												Amanda</a>
+					<div class="row" id="showCmod">
+						<c:forEach items="${result.data }" var="cmod">
+							<div class="col-md-3 col-sm-6" id="cmodlist">
+								<div class="item-box">
+									<div class="item-media entry">
+										<img src="upload/item_01.jpg" alt="" class="img-responsive">
+										<div class="magnifier">
+											<div class="item-author">
+												<a href="public-profile.html"><img
+													src="upload/member_01.jpg" class="img-circle" alt="">
+													${cmod.user.uname }</a>
+											</div>
+											<!-- end author -->
 										</div>
-										<!-- end author -->
+										<div class="theme__button">
+											<p>
+												<a href="single-item.html" title="">${cmod.cprice }￥</a>
+											</p>
+										</div>
 									</div>
-									<div class="theme__button">
-										<p>
-											<a href="single-item.html" title="">$21</a>
-										</p>
-									</div>
+									<!-- end item-media -->
+									<h4>
+										<a href="single-item.html">${cmod.cname }</a>
+									</h4>
+									<small><a href="single-item.html"><i
+											class="fa fa-eye"></i> 893</a></small> <small><a
+										href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
 								</div>
-								<!-- end item-media -->
-								<h4>
-									<a href="single-item.html">Weather Forecast</a>
-								</h4>
-								<small><a href="single-item.html"><i
-										class="fa fa-eye"></i> 893</a></small> <small><a
-									href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
+								<!-- end item-box -->
 							</div>
-							<!-- end item-box -->
-						</div>
-						<!-- end col -->
-
+							<!-- end col -->
+						</c:forEach>
 					</div>
 					<!-- end row -->
 				</div>
@@ -124,10 +136,11 @@
 						<div class="col-md-12">
 							<nav class="pagination-wrapper">
 								<ul class="pagination">
-									<li><h5>记得无限翻页哦~</h5></li>
-									<li><a href="#" aria-label="Next"> <span
-											aria-hidden="true">&raquo;</span>
-									</a></li>
+									<div class="content2">
+										<div class="demo">
+											<div id="demo2"></div>
+										</div>
+									</div>
 								</ul>
 							</nav>
 						</div>
@@ -211,8 +224,8 @@
 				</div>
 				<!-- end stores -->
 
-				
-		<%@include file="common/advertisement.jsp"%>
+
+				<%@include file="common/advertisement.jsp"%>
 
 			</div>
 			<!-- end container -->
@@ -227,5 +240,69 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/custom.js"></script>
+
+	<script type="text/javascript" src="fenye/jquery-1.3.2.js"></script>
+	<script src="fenye/jquery.paginate.js" type="text/javascript"></script>
+	<script src="fenye/lanrenzhijia.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		function fenye(obj) {
+			$(".pagination li a").css("background-color", "#f6f9fc");
+			$(obj).css("background-color", "#FF9933");
+			var page = $(obj).html();
+			search(page);
+		}
+		//搜索商品
+		function search(page) {
+			var cname = $("#search-keyword").val();
+			var tid = $("#type").val();
+			$
+					.get(
+							"search",
+							{
+								page : page,
+								cname : cname,
+								tid : tid
+							},
+							function(result) {
+								console.log(result);
+								var str = "";
+								var res = result.data;
+								for (var i = 0; i < res.length; i++) {
+									str += "<div class='col-md-3 col-sm-6'>\n"
+											+ "                            <div class='item-box'>\n"
+											+ "                                <div class='item-media entry'>\n"
+											+ "                                    <img src='upload/item_01.jpg' alt='' class='img-responsive'>\n"
+											+ "                                    <div class='magnifier'>\n"
+											+ "                                        <div class='item-author'>\n"
+											+ "                                            <a href='public-profile.html'><img src='upload/member_01.jpg' class='img-circle' alt=''> "
+											+ res[i].user.uname
+											+ "</a>\n"
+											+ "                                        </div>\n"
+											+ "                                    </div>\n"
+											+ "                                    <div class='theme__button'>\n"
+											+ "                                        <p><a href='single-item.html' title=''>"
+											+ res[i].cprice
+											+ "￥</a></p>\n"
+											+ "                                    </div>\n"
+											+ "                                </div>\n"
+											+ "                                <h4><a href='single-item.html'>"
+											+ res[i].cname
+											+ "</a></h4>\n"
+											+ "                                <small><a href='single-item.html'><i class='fa fa-eye'></i> 893</a></small>\n"
+											+ "                                <small><a href='single-item.html'><i class='fa fa-comment-o'></i> 12</a></small>\n"
+											+ "                            </div>\n"
+											+ "                        </div>"
+								}
+								$("#showCmod").html(str);
+							});
+		}
+		//使引入的两个jquery文件共存
+		$(function() {
+			var $2 = $.noConflict(); // 第二个加载的jQuery对象变成了 $2
+			var version = $.fn.jquery;
+			var version2 = $2.fn.jquery;
+		});
+	</script>
 </body>
 </html>

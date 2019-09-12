@@ -19,17 +19,16 @@ public class RandomValidateCode {
 	private int lineSize = 40;// 干扰线数量
 	private int stringNum = 4;// 随机产生字符数量
 
- 	private Random r = new Random();
- 	// {"宋体", "华文楷体", "黑体", "华文新魏", "华文隶书", "微软雅黑", "楷体_GB2312"}
-	private String[] fontNames  = {"宋体", "华文楷体", "黑体", "微软雅黑", "楷体_GB2312"};
+	private Random r = new Random();
+	// {"宋体", "华文楷体", "黑体", "华文新魏", "华文隶书", "微软雅黑", "楷体_GB2312"}
+	private String[] fontNames = { "宋体", "华文楷体", "黑体", "微软雅黑", "楷体_GB2312" };
 
-	
 	// 生成随机的字体
 	private Font randomFont() {
 		int index = r.nextInt(fontNames.length);
-		String fontName = fontNames[index];//生成随机的字体名称
-		int style = r.nextInt(4);//生成随机的样式, 0(无样式), 1(粗体), 2(斜体), 3(粗体+斜体)
-		int size = r.nextInt(5) + 24; //生成随机字号, 24 ~ 28
+		String fontName = fontNames[index];// 生成随机的字体名称
+		int style = r.nextInt(4);// 生成随机的样式, 0(无样式), 1(粗体), 2(斜体), 3(粗体+斜体)
+		int size = r.nextInt(5) + 24; // 生成随机字号, 24 ~ 28
 		return new Font(fontName, style, size);
 	}
 

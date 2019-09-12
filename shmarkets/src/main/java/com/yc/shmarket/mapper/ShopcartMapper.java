@@ -6,25 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ShopcartMapper {
-    long countByExample(ShopcartExample example);
+	long countByExample(ShopcartExample example);
 
-    int deleteByExample(ShopcartExample example);
+	int deleteByExample(ShopcartExample example);
 
-    int deleteByPrimaryKey(Integer scid);
+	int deleteByPrimaryKey(Integer scid);
 
-    int insert(Shopcart record);
+	int insert(Shopcart record);
 
-    int insertSelective(Shopcart record);
+	int insertSelective(Shopcart record);
 
-    List<Shopcart> selectByExample(ShopcartExample example);
+	List<Shopcart> selectByExample(ShopcartExample example);
 
-    Shopcart selectByPrimaryKey(Integer scid);
+	Shopcart selectByPrimaryKey(Integer scid);
 
-    int updateByExampleSelective(@Param("record") Shopcart record, @Param("example") ShopcartExample example);
+	int updateByExampleSelective(@Param("record") Shopcart record, @Param("example") ShopcartExample example);
 
-    int updateByExample(@Param("record") Shopcart record, @Param("example") ShopcartExample example);
+	int updateByExample(@Param("record") Shopcart record, @Param("example") ShopcartExample example);
 
-    int updateByPrimaryKeySelective(Shopcart record);
+	int updateByPrimaryKeySelective(Shopcart record);
 
-    int updateByPrimaryKey(Shopcart record);
+	int updateByPrimaryKey(Shopcart record);
 }

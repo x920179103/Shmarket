@@ -1,33 +1,33 @@
 package com.yc.shmarket.pojo;
 
 public class Type {
-    private Integer tid;
+	private Integer tid;
 
-    private String tname;
+	private String tname;
 
-    private Integer tidd;
+	private Integer tidd;
 
-    public Integer getTid() {
-        return tid;
-    }
+	public Integer getTid() {
+		return tid;
+	}
 
-    public void setTid(Integer tid) {
-        this.tid = tid;
-    }
+	public void setTid(Integer tid) {
+		this.tid = tid;
+	}
 
-    public String getTname() {
-        return tname;
-    }
+	public String getTname() {
+		return tname;
+	}
 
-    public void setTname(String tname) {
-        this.tname = tname == null ? null : tname.trim();
-    }
+	public void setTname(String tname) {
+		this.tname = tname == null ? null : tname.trim();
+	}
 
-    public Integer getTidd() {
-        return tidd;
-    }
+	public Integer getTidd() {
+		return tidd;
+	}
 
-    public void setTidd(Integer tidd) {
-        this.tidd = tidd;
-    }
+	public void setTidd(Integer tidd) {
+		this.tidd = tidd;
+	}
 }

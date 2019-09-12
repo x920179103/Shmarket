@@ -2,204 +2,236 @@ package com.yc.shmarket.pojo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "handler" })
 public class Commodities {
-    private Integer cid;
+	private Integer cid;
 
-    private String cname;
+	private String cname;
 
-    private Integer tid;
+	private Integer tid;
+	private Type type;
 
-    private Integer cnum;
+	private Integer cnum;
 
-    private String cdescribe;
+	private String cdescribe;
 
-    private String ccolor;
+	private String ccolor;
 
-    private String cmodel;
+	private String cmodel;
 
-    private Integer cnew;
+	private Integer cnew;
 
-    private String cpic;
+	private String cpic;
 
-    private Long cprice;
+	private Long cprice;
 
-    private Integer uid;
+	private Integer uid;
+	private Users user;
 
-    private String caddress;
+	private String caddress;
 
-    private String cphone;
+	private String cphone;
 
-    private Integer cpostage;
+	private Integer cpostage;
 
-    private Date cupDate;
+	private Date cupDate;
 
-    private Date cdownDate;
+	private Date cdownDate;
 
-    private Integer cstateCom;
+	private Integer cstateCom;
 
-    private Integer cstateDingdan;
+	private Integer cstateDingdan;
 
-    private Integer cavgGrade;
+	private Integer cavgGrade;
 
-    private String cbargain;
+	private String cbargain;
 
-    public Integer getCid() {
-        return cid;
-    }
+	public Type getType() {
+		return type;
+	}
 
-    public void setCid(Integer cid) {
-        this.cid = cid;
-    }
+	public void setType(Type type) {
+		this.type = type;
+	}
 
-    public String getCname() {
-        return cname;
-    }
+	public Users getUser() {
+		return user;
+	}
 
-    public void setCname(String cname) {
-        this.cname = cname == null ? null : cname.trim();
-    }
+	public void setUser(Users user) {
+		this.user = user;
+	}
 
-    public Integer getTid() {
-        return tid;
-    }
+	public Integer getCid() {
+		return cid;
+	}
 
-    public void setTid(Integer tid) {
-        this.tid = tid;
-    }
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
 
-    public Integer getCnum() {
-        return cnum;
-    }
+	public String getCname() {
+		return cname;
+	}
 
-    public void setCnum(Integer cnum) {
-        this.cnum = cnum;
-    }
+	public void setCname(String cname) {
+		this.cname = cname == null ? null : cname.trim();
+	}
 
-    public String getCdescribe() {
-        return cdescribe;
-    }
+	public Integer getTid() {
+		return tid;
+	}
 
-    public void setCdescribe(String cdescribe) {
-        this.cdescribe = cdescribe == null ? null : cdescribe.trim();
-    }
+	public void setTid(Integer tid) {
+		this.tid = tid;
+	}
 
-    public String getCcolor() {
-        return ccolor;
-    }
+	public Integer getCnum() {
+		return cnum;
+	}
 
-    public void setCcolor(String ccolor) {
-        this.ccolor = ccolor == null ? null : ccolor.trim();
-    }
+	public void setCnum(Integer cnum) {
+		this.cnum = cnum;
+	}
 
-    public String getCmodel() {
-        return cmodel;
-    }
+	public String getCdescribe() {
+		return cdescribe;
+	}
 
-    public void setCmodel(String cmodel) {
-        this.cmodel = cmodel == null ? null : cmodel.trim();
-    }
+	public void setCdescribe(String cdescribe) {
+		this.cdescribe = cdescribe == null ? null : cdescribe.trim();
+	}
 
-    public Integer getCnew() {
-        return cnew;
-    }
+	public String getCcolor() {
+		return ccolor;
+	}
 
-    public void setCnew(Integer cnew) {
-        this.cnew = cnew;
-    }
+	public void setCcolor(String ccolor) {
+		this.ccolor = ccolor == null ? null : ccolor.trim();
+	}
 
-    public String getCpic() {
-        return cpic;
-    }
+	public String getCmodel() {
+		return cmodel;
+	}
 
-    public void setCpic(String cpic) {
-        this.cpic = cpic == null ? null : cpic.trim();
-    }
+	public void setCmodel(String cmodel) {
+		this.cmodel = cmodel == null ? null : cmodel.trim();
+	}
 
-    public Long getCprice() {
-        return cprice;
-    }
+	public Integer getCnew() {
+		return cnew;
+	}
 
-    public void setCprice(Long cprice) {
-        this.cprice = cprice;
-    }
+	public void setCnew(Integer cnew) {
+		this.cnew = cnew;
+	}
 
-    public Integer getUid() {
-        return uid;
-    }
+	public String getCpic() {
+		return cpic;
+	}
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
+	public void setCpic(String cpic) {
+		this.cpic = cpic == null ? null : cpic.trim();
+	}
 
-    public String getCaddress() {
-        return caddress;
-    }
+	public Long getCprice() {
+		return cprice;
+	}
 
-    public void setCaddress(String caddress) {
-        this.caddress = caddress == null ? null : caddress.trim();
-    }
+	public void setCprice(Long cprice) {
+		this.cprice = cprice;
+	}
 
-    public String getCphone() {
-        return cphone;
-    }
+	public Integer getUid() {
+		return uid;
+	}
 
-    public void setCphone(String cphone) {
-        this.cphone = cphone == null ? null : cphone.trim();
-    }
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 
-    public Integer getCpostage() {
-        return cpostage;
-    }
+	public String getCaddress() {
+		return caddress;
+	}
 
-    public void setCpostage(Integer cpostage) {
-        this.cpostage = cpostage;
-    }
+	public void setCaddress(String caddress) {
+		this.caddress = caddress == null ? null : caddress.trim();
+	}
 
-    public Date getCupDate() {
-        return cupDate;
-    }
+	public String getCphone() {
+		return cphone;
+	}
 
-    public void setCupDate(Date cupDate) {
-        this.cupDate = cupDate;
-    }
+	public void setCphone(String cphone) {
+		this.cphone = cphone == null ? null : cphone.trim();
+	}
 
-    public Date getCdownDate() {
-        return cdownDate;
-    }
+	public Integer getCpostage() {
+		return cpostage;
+	}
 
-    public void setCdownDate(Date cdownDate) {
-        this.cdownDate = cdownDate;
-    }
+	public void setCpostage(Integer cpostage) {
+		this.cpostage = cpostage;
+	}
 
-    public Integer getCstateCom() {
-        return cstateCom;
-    }
+	public Date getCupDate() {
+		return cupDate;
+	}
 
-    public void setCstateCom(Integer cstateCom) {
-        this.cstateCom = cstateCom;
-    }
+	public void setCupDate(Date cupDate) {
+		this.cupDate = cupDate;
+	}
 
-    public Integer getCstateDingdan() {
-        return cstateDingdan;
-    }
+	public Date getCdownDate() {
+		return cdownDate;
+	}
 
-    public void setCstateDingdan(Integer cstateDingdan) {
-        this.cstateDingdan = cstateDingdan;
-    }
+	public void setCdownDate(Date cdownDate) {
+		this.cdownDate = cdownDate;
+	}
 
-    public Integer getCavgGrade() {
-        return cavgGrade;
-    }
+	public Integer getCstateCom() {
+		return cstateCom;
+	}
 
-    public void setCavgGrade(Integer cavgGrade) {
-        this.cavgGrade = cavgGrade;
-    }
+	public void setCstateCom(Integer cstateCom) {
+		this.cstateCom = cstateCom;
+	}
 
-    public String getCbargain() {
-        return cbargain;
-    }
+	public Integer getCstateDingdan() {
+		return cstateDingdan;
+	}
 
-    public void setCbargain(String cbargain) {
-        this.cbargain = cbargain == null ? null : cbargain.trim();
-    }
+	public void setCstateDingdan(Integer cstateDingdan) {
+		this.cstateDingdan = cstateDingdan;
+	}
+
+	public Integer getCavgGrade() {
+		return cavgGrade;
+	}
+
+	public void setCavgGrade(Integer cavgGrade) {
+		this.cavgGrade = cavgGrade;
+	}
+
+	public String getCbargain() {
+		return cbargain;
+	}
+
+	public void setCbargain(String cbargain) {
+		this.cbargain = cbargain == null ? null : cbargain.trim();
+	}
+
+	@Override
+	public String toString() {
+		return "Commodities [cid=" + cid + ", cname=" + cname + ", tid=" + tid + ", type=" + type + ", cnum=" + cnum
+				+ ", cdescribe=" + cdescribe + ", ccolor=" + ccolor + ", cmodel=" + cmodel + ", cnew=" + cnew
+				+ ", cpic=" + cpic + ", cprice=" + cprice + ", uid=" + uid + ", user=" + user + ", caddress=" + caddress
+				+ ", cphone=" + cphone + ", cpostage=" + cpostage + ", cupDate=" + cupDate + ", cdownDate=" + cdownDate
+				+ ", cstateCom=" + cstateCom + ", cstateDingdan=" + cstateDingdan + ", cavgGrade=" + cavgGrade
+				+ ", cbargain=" + cbargain + "]";
+	}
+
 }

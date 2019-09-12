@@ -17,7 +17,8 @@ public class ShmarketApplication {
 
 	@GetMapping("hello")
 	public String hello() {
+
 		return "hello";
 	}
-	
+
 }

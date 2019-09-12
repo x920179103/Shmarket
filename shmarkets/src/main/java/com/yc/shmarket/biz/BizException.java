@@ -1,6 +1,6 @@
 package com.yc.shmarket.biz;
 
-public class BizException extends Exception{
+public class BizException extends Exception {
 
 	/**
 	 * 
@@ -32,6 +32,4 @@ public class BizException extends Exception{
 		// TODO Auto-generated constructor stub
 	}
 
-	
- 
 }

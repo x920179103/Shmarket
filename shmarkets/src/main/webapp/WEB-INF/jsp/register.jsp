@@ -51,7 +51,6 @@
 	<!-- START SITE -->
 	<div id="wrapper">
 
-		<%@include file="common/header.jsp"%>
 
 		<section class="section single-wrap">
 			<div class="container">
@@ -102,12 +101,20 @@
 														</div>
 													</div>
 													<div class="col-md-6">
-														<div class="form-group">
+														<!-- <div class="form-group">
 															<label>密码 <span style="color: red" id="pwdError"></span>
 																<span id="pwdComplexity"></span>
 															</label> <input type="password" name="upwd" required
 																class="form-control" placeholder="" id="upwd"
 																onchange="checkPassword()" onkeyup="checkPwd()" /> <span
+																class="fa fa-lock"></span>
+														</div> -->
+														<div class="form-group">
+															<label>密码 </label> <span style="color: red"
+																id="pwdError"></span> <span id="pwdComplexity"></span> <input
+																type="password" name="upwd" required
+																class="form-control" placeholder="" id="upwd"
+																onchange="checkPassword()" onkeyup="checkPwd()" /><span
 																class="fa fa-lock"></span>
 														</div>
 													</div>
@@ -133,7 +140,8 @@
 														<div class="form-group">
 															<label>性别 </label> <span style="color: red"
 																id="usexError"> </span><input type="radio" name="usex"
-																value="男" checked="checked"/>男 <input type="radio" name="usex" value="女" />女
+																value="男" checked="checked" />男 <input type="radio"
+																name="usex" value="女" />女
 														</div>
 													</div>
 													<div class="col-md-12">
@@ -199,7 +207,7 @@
 			}
 			
 			if(l == 0){
-				$("#pwdError").text("密码必须大于六位小于15位");
+				$("#pwdError").text("密码必须大于等于6位小于等于15位");
 				return false;
 			}
 			if(l == 1){
@@ -283,7 +291,6 @@
 				return false;
 			}
 		}
-
 	</script>
 
 </body>

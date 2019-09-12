@@ -51,7 +51,6 @@
 	<!-- START SITE -->
 	<div id="wrapper">
 
-		<%@include file="common/header.jsp"%>
 
 		<section class="section single-wrap">
 			<div class="container">
@@ -91,13 +90,14 @@
 													</div>
 													<div class="form-group">
 														<label>密码</label> <input type="password" name="upwd"
-															required class="form-control" placeholder="" id="upwd"/> <span
+															required class="form-control" placeholder="" id="upwd"/>
+														<a href="toforget">忘记密码</a> <span
 															class="fa fa-lock"></span>
 													</div>
 													<div class="form-group">
 														<label>验证码</label> <input type="text" name="verifyCodeText"
 															id="verifyCodeText" required class="form-control"
-															placeholder="" /><span class="fa fa-lock"></span> 
+															placeholder="" />
 													</div>
 													<div><img src="checkCode" title="看不清楚，换一张"  width="100" height="32"
 															class="passcode" style="height: 43px; cursor: pointer;"
@@ -137,7 +137,7 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/custom.js"></script>
 
-	<script src="js/jquery.cookie.js"></script>
+	<!-- <script src="js/jquery.cookie.js"></script> -->
 
 	<script type="text/javascript">
 	$("#login").click(function login(){
@@ -147,15 +147,17 @@
 		var pwd=upwd.value;
 		var code = verifyCodeText.value;
 		var param={name:name,password:pwd,code:code};//一个json对象
-		var userData = {
+		/* var userData = {
 				name: name,
 				password: pwd
-		};
+		}; */
 
 		//匿名函数
 		var callback=function(result){
 			if(result.code==1){
-				$.cookie('userData', JSON.stringify(userData));
+				/* $.cookie("userData", JSON.stringify(userData)); */
+				//$.cookie("name",name);
+				//$.cookie("pwd",pwd);
 				alert("欢迎："+result.data.uname);
 				window.location.href="index"; 
 			}else{

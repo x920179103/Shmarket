@@ -6,25 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface OrderDetailsMapper {
-    long countByExample(OrderDetailsExample example);
+	long countByExample(OrderDetailsExample example);
 
-    int deleteByExample(OrderDetailsExample example);
+	int deleteByExample(OrderDetailsExample example);
 
-    int deleteByPrimaryKey(Integer odid);
+	int deleteByPrimaryKey(Integer odid);
 
-    int insert(OrderDetails record);
+	int insert(OrderDetails record);
 
-    int insertSelective(OrderDetails record);
+	int insertSelective(OrderDetails record);
 
-    List<OrderDetails> selectByExample(OrderDetailsExample example);
+	List<OrderDetails> selectByExample(OrderDetailsExample example);
 
-    OrderDetails selectByPrimaryKey(Integer odid);
+	OrderDetails selectByPrimaryKey(Integer odid);
 
-    int updateByExampleSelective(@Param("record") OrderDetails record, @Param("example") OrderDetailsExample example);
+	int updateByExampleSelective(@Param("record") OrderDetails record, @Param("example") OrderDetailsExample example);
 
-    int updateByExample(@Param("record") OrderDetails record, @Param("example") OrderDetailsExample example);
+	int updateByExample(@Param("record") OrderDetails record, @Param("example") OrderDetailsExample example);
 
-    int updateByPrimaryKeySelective(OrderDetails record);
+	int updateByPrimaryKeySelective(OrderDetails record);
 
-    int updateByPrimaryKey(OrderDetails record);
+	int updateByPrimaryKey(OrderDetails record);
 }

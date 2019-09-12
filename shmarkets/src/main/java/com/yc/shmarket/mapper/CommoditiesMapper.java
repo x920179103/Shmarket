@@ -2,29 +2,33 @@ package com.yc.shmarket.mapper;
 
 import com.yc.shmarket.pojo.Commodities;
 import com.yc.shmarket.pojo.CommoditiesExample;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface CommoditiesMapper {
-    long countByExample(CommoditiesExample example);
+	// 商品模糊查询
+	List<Commodities> findCmodList(Commodities cmod);
 
-    int deleteByExample(CommoditiesExample example);
+	long countByExample(CommoditiesExample example);
 
-    int deleteByPrimaryKey(Integer cid);
+	int deleteByExample(CommoditiesExample example);
 
-    int insert(Commodities record);
+	int deleteByPrimaryKey(Integer cid);
 
-    int insertSelective(Commodities record);
+	int insert(Commodities record);
 
-    List<Commodities> selectByExample(CommoditiesExample example);
+	int insertSelective(Commodities record);
 
-    Commodities selectByPrimaryKey(Integer cid);
+	List<Commodities> selectByExample(CommoditiesExample example);
 
-    int updateByExampleSelective(@Param("record") Commodities record, @Param("example") CommoditiesExample example);
+	Commodities selectByPrimaryKey(Integer cid);
 
-    int updateByExample(@Param("record") Commodities record, @Param("example") CommoditiesExample example);
+	int updateByExampleSelective(@Param("record") Commodities record, @Param("example") CommoditiesExample example);
 
-    int updateByPrimaryKeySelective(Commodities record);
+	int updateByExample(@Param("record") Commodities record, @Param("example") CommoditiesExample example);
 
-    int updateByPrimaryKey(Commodities record);
+	int updateByPrimaryKeySelective(Commodities record);
+
+	int updateByPrimaryKey(Commodities record);
 }

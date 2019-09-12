@@ -15,7 +15,7 @@
 					class="fa fa-comment-o"></i> 05</a></small></li>
 	</ul>
 	<a href="shop-favorites.html" class="btn btn-primary">前往收藏列表</a> <a
-		href="index" class="btn btn-primary">返回</a>
+		onclick="" class="btn btn-primary">返回</a>
 </nav>
 
 <div class="content-top">
@@ -42,4 +42,8 @@
 	<!-- end row -->
 </div>
 <!-- end content top -->
-
+<script type="text/javascript">
+	function a(){
+		
+	}
+</script>
